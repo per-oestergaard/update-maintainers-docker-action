@@ -1,0 +1,19 @@
+on: [push]
+
+jobs:
+  local_action:
+    runs-on: ubuntu-latest
+    name: Test local action
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Update Maintainers Docker Action
+        uses: ./ # Uses an action in the root directory
+        id: update-maintainers-docker-action
+        with:
+          header_1: Maintainers
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"

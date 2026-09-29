@@ -1,0 +1,44 @@
+# action.yml
+name: 'Update Maintainers Docker Action'
+description: 'A Docker action that can update a markdown table based so it is in sync with the CODEOWNERS file and thus only needs to be maintained in one place.'
+inputs:
+  CODEOWNERS_file:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+  header_1:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: ''
+  header_2:  # id of input
+    description: 'Who to greet'
+    required: false
+    default: ''
+  key_2:  # id of input
+    description: 'Who to greet'
+    required: false
+    default: ''
+  header_3:  # id of input
+    description: 'Who to greet'
+    required: false
+    default: ''
+  key_3:  # id of input
+    description: 'Who to greet'
+    required: false
+    default: ''
+  header_4:  # id of input
+    description: 'Who to greet'
+    required: false
+    default: ''
+  key_4:  # id of input
+    description: 'Who to greet'
+    required: false
+    default: ''
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
